@@ -1,0 +1,17 @@
+box: wercker/default
+
+build:
+  steps:
+    - arjen/hugo-build@1.6.1:
+        version: "0.14"
+deploy:
+  steps:
+    - script:
+        name: install git
+        code: |
+          sudo apt-get update
+          sudo apt-get install git -y
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        domain: blog.zj8487.com
+        basedir: public

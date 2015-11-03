@@ -1,0 +1,15 @@
+theme="polymer"
+baseurl = "http://blog.zj8487.com/"
+languageCode = "en-us"
+title = "zj8487的博客"
+MetaDataFormat = "toml"
+paginate = 10
+disqusShortname = "zj8487"
+copyright = "zj8487© 2015 Copyright Text"
+
+[params]
+  author = "zj8487"
+  photo = "images/photo.png"
+  twitter = "zj8487"
+  github = "zj8487"
+  facebook = "zj8487"
