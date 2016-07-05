@@ -1,0 +1,309 @@
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>2015 11 09 ubuntu定期自动删除日志</title>
+  <script src="http://blog.zj8487.com//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="http://blog.zj8487.com//bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-drawer-panel/paper-drawer-panel.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-item/paper-item.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/iron-image/iron-image.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+  <style is="custom-style">
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .nav {
+      border-right: 1px solid #ccc;
+    }
+    
+    paper-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: var(--paper-grey-200, #eee);
+       
+      --paper-scroll-header-panel-full-header: {
+        background-image: url(http://blog.zj8487.com//images/cover.png);
+      };
+       
+      --paper-scroll-header-panel-condensed-header: {
+        background-image: url(http://blog.zj8487.com//images/cover.png);
+      };
+    }
+    
+    paper-toolbar {
+       
+      height: 256px;
+      background-color: transparent;
+    }
+    .profile{
+      width: 100%;
+      padding-bottom: 20px;
+    }
+    .photo{
+      margin: 20px;
+      display: inline-block;
+      height: 64px; width: 64px;
+      border-radius: 50%;
+    }
+    .article{
+      border: 1px solid #bebebe;
+      padding: 16px;
+      margin: 16px;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .title{
+      font-size: 22px;
+      padding: 8px 0 16px;
+    }
+    .description{
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+    .author{
+      font-size: 16px;
+      padding-left: 20px;
+      color: white;
+    }
+    .design{
+      font-size: 14px;
+    }
+    .copyright{
+      font-size: 16px;
+    }
+    paper-menu a {
+      text-decoration: none;
+      color: #212121;
+    }
+  </style>
+
+</head>
+<body>
+  <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
+    <div class="nav scroll" drawer>
+    
+      <iron-image class="profile" sizing="cover" src="http://blog.zj8487.com//images/profile.png">
+    
+        
+          <iron-image class="photo" sizing="cover" src="http://blog.zj8487.com//images/photo.png"></iron-image>
+        
+          <div class="author">zj8487</div>
+      </iron-image>
+      <paper-menu>
+        <a href="http://blog.zj8487.com/"><paper-item>
+          <iron-icon icon="home"></iron-icon>　<div class="flex">Home</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="http://blog.zj8487.com//categories/"><paper-item>
+          <iron-icon icon="drafts"></iron-icon>　<div class="flex">Categories</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="http://blog.zj8487.com//tags/"><paper-item>
+          <iron-icon icon="loyalty"></iron-icon>　<div class="flex">Tags</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+      </paper-menu>
+      <header id="header">
+    <nav id="nav">
+                <ul id="social">
+            
+            <li id="share">
+                <span class="title"> 相关链接 </span>
+                <div class="dropdown share">
+                    <ul class="social">
+                      <li> <a href="http://spf13.com" target="_blank" title="spf13 is Steve Francis" class="blog">spf13</a> </li>
+                      <li> <a href="http://zhibimo.com/" target="_blank" title="知笔墨" class="blog">知笔墨</a> </li>
+                      <li> <a href="http://1.guotie.sinaapp.com/?cat=134" target="_blank" title="铁哥" class="blog">铁哥</a> </li>
+                      <li> <a href="http://tonybai.com/" target="_blank" title="tonybai" class="blog">tonybai</a> </li>
+                      <li> <a href="http://keenwon.com/" target="_blank" title="keenwon" class="blog">keenwon</a> </li>
+                      <li> <a href="https://jysperm.me/" target="_blank" title="王子亭" class="blog">王子亭</a> </li>
+                      <li> <a href="http://www.dongming8.cn/" target="_blank" title="日月明心" class="blog">日月明心</a> </li>
+                      <li> <a href="http://disksing.com/" target="_blank" title="黄梦龙" class="blog">黄梦龙</a> </li>
+                      <li> <a href="http://blog.mutoo.im/" target="_blank" title="木匣子" class="blog">木匣子</a> </li>
+                      <li> <a href="http://www.zhaoxiaodan.com/" target="_blank" title="胖梁" class="blog">胖梁</a> </li>
+                      <li> <a href="http://www.simonzhang.net/?cat=484" target="_blank" title="simonzhang" class="blog">simonzhang</a> </li>
+                      <li> <a href="http://www.cnblogs.com/ghj1976/category/446360.html" target="_blank" title="蝈蝈俊" class="blog">蝈蝈俊</a> </li>
+                      <li> <a href="https://program-think.blogspot.com/" target="_blank" title="编程随想" class="blog">编程随想</a> </li>
+                      <li> <a href="http://colobu.com/" target="_blank" title="鸟窝" class="blog">鸟窝</a> </li>
+                    </ul>
+                <span class="icon icon-bubbles"> </span> <span class="subcount"></span> </div>
+            </li>
+        </ul>
+
+    </nav>
+</header>
+
+
+    </div>
+
+    <paper-scroll-header-panel main condenses header-height="256" condensed-header-height="64">
+
+      <paper-toolbar>
+
+        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div class="bottom title">zj8487的博客</div>
+        <div class="flex"></div>
+        
+          <a href="https://www.facebook.com/zj8487"><paper-icon-button src="http://blog.zj8487.com//images/facebook-dreamstale25.png"></paper-icon-button></a>
+        
+        
+          <a href="https://twitter.com/zj8487"><paper-icon-button src="http://blog.zj8487.com//images/twitter-dreamstale71.png"></paper-icon-button></a>
+        
+        
+        
+        
+          <a href="https://github.com/zj8487"><paper-icon-button src="http://blog.zj8487.com//images/github2-dreamstale35.png"></paper-icon-button></a>
+        
+          <a href="http://blog.zj8487.com//index.xml"><paper-icon-button src="http://blog.zj8487.com//images/feed-dreamstale27.png"></paper-icon-button></a>
+      
+      </paper-toolbar>
+
+
+
+<div class="content">
+
+  <div class="article">
+    <div class="title">2015 11 09 ubuntu定期自动删除日志</div>
+    
+      <div class="categories">
+        
+          <a href="http://blog.zj8487.com//categories/2015-11/">2015-11</a>
+        
+          <a href="http://blog.zj8487.com//categories/ubuntu/">ubuntu</a>
+        
+      </div>
+     
+    <div class="description">
+
+<h1 id="需求来源:cbfbc550fbf29c042c9d11dd2032cbde">需求来源</h1>
+
+<p>服务器后台托管在阿里云上，使用的是Ubuntu系统。每天系统运行会产生很多日志，但是购买的阿里云主机磁盘空间是有限的。时间一长，磁盘就被塞满了，这还导致了一两次系统系统服务器中断。
+为了保证磁盘空余，就需要定时清理日志。比如我们只保持最近N天的日志。</p>
+
+<h1 id="ubuntu的cron服务:cbfbc550fbf29c042c9d11dd2032cbde">Ubuntu的cron服务</h1>
+
+<p>cron服务提供crontab命令来设定cron服务的，任务调度分为两类，系统任务调度和用户任务调度。系统任务调度可直接编辑/etc/crontab文件进行配置。</p>
+
+<h2 id="crontab文件的含义:cbfbc550fbf29c042c9d11dd2032cbde">crontab文件的含义</h2>
+
+<p>每一行都代表一项任务，每行的每个字段代表一项设置，它的格式共分为七个字段，前五段是时间设定段，第七段是要执行的命令段，格式如下:</p>
+
+<pre><code># m h   dom mon dow  user     command
+ 17 *    *   *   *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
+ 25 6    *   *   *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
+ 47 6    *   *   7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
+ 52 6    1   *   *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
+</code></pre>
+
+<p>m(minute)： 表示分钟，可以是从0到59之间的任何整数。</p>
+
+<p>h(hour)：表示小时，可以是从0到23之间的任何整数。</p>
+
+<p>dom(day)：表示日期，可以是从1到31之间的任何整数。</p>
+
+<p>mon(month)：表示月份，可以是从1到12之间的任何整数。</p>
+
+<p>dow(week)：表示星期几，可以是从0到7之间的任何整数，这里的0或7代表星期日。</p>
+
+<p>command：要执行的命令，可以是系统命令，也可以是自己编写的脚本文件。</p>
+
+<h1 id="具体配置:cbfbc550fbf29c042c9d11dd2032cbde">具体配置</h1>
+
+<p>假如我们计划在每天10：45分进行操作。脚本名为：<code>remove_expired_log.sh</code></p>
+
+<p>我们直接在/etc/crontab文件中添加如下配置</p>
+
+<pre><code>45 10   * * *   root    sudo /path_to_your_project/remove_expired_log.sh
+</code></pre>
+
+<p>在脚本中我们假设存放日志的文件目录为log，并且他位于该脚本所在目录的父目录中。</p>
+
+<h2 id="remove-expired-log-sh:cbfbc550fbf29c042c9d11dd2032cbde">remove_expired_log.sh</h2>
+
+<pre><code>#!/bin/bash
+
+echo $(pwd)
+
+PRE_PWD=$(pwd)
+
+SCRIPT_PATH=$0
+WORK_PATH=$(dirname $(dirname $SCRIPT_PATH))
+cd $WORK_PATH
+
+find ./log/ -mtime +4 -name &quot;*.log.201*&quot; -exec rm -rf {} \;
+
+cd $PRE_PWD
+echo $(pwd)
+</code></pre>
+
+<h1 id="总结:cbfbc550fbf29c042c9d11dd2032cbde">总结</h1>
+
+<p>使用系统自带的cron服务很方便的完成了我们的任务。配置也比较简单。只需要配置好时间和执行脚本就ok了</p>
+
+<h2 id="参考文献:cbfbc550fbf29c042c9d11dd2032cbde">参考文献</h2>
+
+<p><a href="http://www.cnblogs.com/peida/archive/2013/01/08/2850483.html">http://www.cnblogs.com/peida/archive/2013/01/08/2850483.html</a></p>
+
+<p><a href="http://blog.csdn.net/androidmylove/article/details/41518961">http://blog.csdn.net/androidmylove/article/details/41518961</a></p>
+</div>
+    <div class="tags">
+      9 Nov 2015
+      
+        
+          <a href="http://blog.zj8487.com//tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/">#系统运维</a>
+        
+       
+    </div>
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'zj8487';
+    
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    
+  </div>
+
+</div>
+
+<paper-item>
+  
+    <a href="http://blog.zj8487.com/post/2016/2016-07-04-%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BC%80%E5%A7%8B/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
+  
+    <div class="flex"></div>
+  
+    <a href="http://blog.zj8487.com/post/2015/2015-11-03-%E5%9F%BA%E4%BA%8Ehugo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"><paper-fab icon="chevron-right"></paper-fab></a>
+  
+</paper-item>
+
+      <paper-item>
+        <div class="copyright">zj8487© 2015 Copyright Text</div>
+        <div class="flex"></div>
+        <div class="design">Design <a href="http://pdevty.github.io/blog/">pdevty</a></div>
+      </paper-item>
+    </paper-scroll-header-panel>
+  </paper-drawer-panel>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>

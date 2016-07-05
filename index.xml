@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zj8487的博客</title>
+    <link>http://blog.zj8487.com/</link>
+    <description>Recent content on zj8487的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>zj8487© 2015 Copyright Text</copyright>
+    <lastBuildDate>Sat, 02 Jul 2016 17:12:07 +0800</lastBuildDate>
+    <atom:link href="http://blog.zj8487.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016 07 02 真正的开始</title>
+      <link>http://blog.zj8487.com/post/2016/2016-07-04-%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BC%80%E5%A7%8B/</link>
+      <pubDate>Sat, 02 Jul 2016 17:12:07 +0800</pubDate>
+      
+      <guid>http://blog.zj8487.com/post/2016/2016-07-04-%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BC%80%E5%A7%8B/</guid>
+      <description>
+
+&lt;h2 id=&#34;为什么是真正的开始:9d2874a6c3f0f9bbbdccc2ab4e89a296&#34;&gt;为什么是真正的开始？&lt;/h2&gt;
+
+&lt;p&gt;这几年一直使用&lt;a href=&#34;http://www.evernote.com&#34;&gt;evernote&lt;/a&gt; 作为自己知识管理工具，虽然evernote也很强大，但是我一直主要是使用了他的剪藏功能。积累的东西倒是不少，但都是别人的东西的记录，对自己来说最多就是一个备忘，很难说有点自己的东西。&lt;/p&gt;
+
+&lt;p&gt;搭建一个自己的博客，记录自己的心得的想法，这些年不知道在我的内心翻腾了多少次。但是，每次都被各种理由推辞了，或者放弃了。这些理由或想法现在回想起来，简直不能算上理由，比如：忙；觉得自己的一些东西没有记录的意义， 觉得没什么东西写等。&lt;/p&gt;
+
+&lt;p&gt;这几年也一直在不停的看书学习，最近越来越觉得很有必要进行记录总结和思考。这种思想很强烈，强烈到各种阻碍自己的理由也无法阻止。于是触发了我立刻动手写。&lt;/p&gt;
+
+&lt;p&gt;有人说一个习惯的形成只需要坚持21天，这次也正好利用这个机会实践下。
+也许除了我自己外，根本没有人看到这篇文章，甚至是我的所有文章。
+但是，有自己就够了，因为这本来就是写给我自己的，写给未来的自己的。
+想到多年后看到自己每天的文字记录，回首往事，心里面突然还有点小激动～～&lt;/p&gt;
+
+&lt;h2 id=&#34;博客内容和定位:9d2874a6c3f0f9bbbdccc2ab4e89a296&#34;&gt;博客内容和定位&lt;/h2&gt;
+
+&lt;p&gt;曾子曰：“吾日三省吾身”。三省做不到，但一省还是可以挑战下吧～～，
+): 呵呵～～～&lt;/p&gt;
+
+&lt;p&gt;工作中遇到的问题或经验也会在这里记录，如果您能看到他们，并且对你有所帮助，那也是一件好事情。&lt;/p&gt;
+
+&lt;p&gt;自己的思绪有时候也会停留在这里，让他有一个安稳的家。&lt;/p&gt;
+
+&lt;h2 id=&#34;感谢:9d2874a6c3f0f9bbbdccc2ab4e89a296&#34;&gt;感谢&lt;/h2&gt;
+
+&lt;p&gt;感谢&lt;a href=&#34;http://hugo.spf13.com&#34;&gt;Hugo&lt;/a&gt;，感谢&lt;a href=&#34;http://github.com&#34;&gt;Github&lt;/a&gt;，让我这个思想的港湾没有花人民币，最重要的是还让人省心啊&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2015 11 09 ubuntu定期自动删除日志</title>
+      <link>http://blog.zj8487.com/post/2015/2015-11-09-ubuntu%E5%AE%9A%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Mon, 09 Nov 2015 19:39:14 +0800</pubDate>
+      
+      <guid>http://blog.zj8487.com/post/2015/2015-11-09-ubuntu%E5%AE%9A%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E6%97%A5%E5%BF%97/</guid>
+      <description>
+
+&lt;h1 id=&#34;需求来源:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;需求来源&lt;/h1&gt;
+
+&lt;p&gt;服务器后台托管在阿里云上，使用的是Ubuntu系统。每天系统运行会产生很多日志，但是购买的阿里云主机磁盘空间是有限的。时间一长，磁盘就被塞满了，这还导致了一两次系统系统服务器中断。
+为了保证磁盘空余，就需要定时清理日志。比如我们只保持最近N天的日志。&lt;/p&gt;
+
+&lt;h1 id=&#34;ubuntu的cron服务:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;Ubuntu的cron服务&lt;/h1&gt;
+
+&lt;p&gt;cron服务提供crontab命令来设定cron服务的，任务调度分为两类，系统任务调度和用户任务调度。系统任务调度可直接编辑/etc/crontab文件进行配置。&lt;/p&gt;
+
+&lt;h2 id=&#34;crontab文件的含义:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;crontab文件的含义&lt;/h2&gt;
+
+&lt;p&gt;每一行都代表一项任务，每行的每个字段代表一项设置，它的格式共分为七个字段，前五段是时间设定段，第七段是要执行的命令段，格式如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# m h   dom mon dow  user     command
+ 17 *    *   *   *   root    cd / &amp;amp;&amp;amp; run-parts --report /etc/cron.hourly
+ 25 6    *   *   *   root    test -x /usr/sbin/anacron || ( cd / &amp;amp;&amp;amp; run-parts --report /etc/cron.daily )
+ 47 6    *   *   7   root    test -x /usr/sbin/anacron || ( cd / &amp;amp;&amp;amp; run-parts --report /etc/cron.weekly )
+ 52 6    1   *   *   root    test -x /usr/sbin/anacron || ( cd / &amp;amp;&amp;amp; run-parts --report /etc/cron.monthly )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;m(minute)： 表示分钟，可以是从0到59之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;h(hour)：表示小时，可以是从0到23之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;dom(day)：表示日期，可以是从1到31之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;mon(month)：表示月份，可以是从1到12之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;dow(week)：表示星期几，可以是从0到7之间的任何整数，这里的0或7代表星期日。&lt;/p&gt;
+
+&lt;p&gt;command：要执行的命令，可以是系统命令，也可以是自己编写的脚本文件。&lt;/p&gt;
+
+&lt;h1 id=&#34;具体配置:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;具体配置&lt;/h1&gt;
+
+&lt;p&gt;假如我们计划在每天10：45分进行操作。脚本名为：&lt;code&gt;remove_expired_log.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我们直接在/etc/crontab文件中添加如下配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;45 10   * * *   root    sudo /path_to_your_project/remove_expired_log.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在脚本中我们假设存放日志的文件目录为log，并且他位于该脚本所在目录的父目录中。&lt;/p&gt;
+
+&lt;h2 id=&#34;remove-expired-log-sh:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;remove_expired_log.sh&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+echo $(pwd)
+
+PRE_PWD=$(pwd)
+
+SCRIPT_PATH=$0
+WORK_PATH=$(dirname $(dirname $SCRIPT_PATH))
+cd $WORK_PATH
+
+find ./log/ -mtime +4 -name &amp;quot;*.log.201*&amp;quot; -exec rm -rf {} \;
+
+cd $PRE_PWD
+echo $(pwd)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;总结:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;总结&lt;/h1&gt;
+
+&lt;p&gt;使用系统自带的cron服务很方便的完成了我们的任务。配置也比较简单。只需要配置好时间和执行脚本就ok了&lt;/p&gt;
+
+&lt;h2 id=&#34;参考文献:cbfbc550fbf29c042c9d11dd2032cbde&#34;&gt;参考文献&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/peida/archive/2013/01/08/2850483.html&#34;&gt;http://www.cnblogs.com/peida/archive/2013/01/08/2850483.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.csdn.net/androidmylove/article/details/41518961&#34;&gt;http://blog.csdn.net/androidmylove/article/details/41518961&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2015 11 03 基于hugo的第一篇博客</title>
+      <link>http://blog.zj8487.com/post/2015/2015-11-03-%E5%9F%BA%E4%BA%8Ehugo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Tue, 03 Nov 2015 09:31:46 +0800</pubDate>
+      
+      <guid>http://blog.zj8487.com/post/2015/2015-11-03-%E5%9F%BA%E4%BA%8Ehugo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>
+
+&lt;h1 id=&#34;为什么选择-hugo-http-hugo-spf13-com:0c6ce7f66ab58a56f1d7b31ea1161aed&#34;&gt;为什么选择&lt;a href=&#34;http://hugo.spf13.com&#34;&gt;Hugo&lt;/a&gt;？&lt;/h1&gt;
+
+&lt;p&gt;搭建一个博客是一件比较麻烦的事情，需要选择VPN主机，域名管理等。
+关键是还要担心VPN主机到期，自己辛苦记录的文章丢失，以及系统迁移等问题。
+所以我一直使用&lt;a href=&#34;https://evernote.com&#34;&gt;Evernote&lt;/a&gt;记录个人的点点滴滴，
+同时Evernote的[剪藏]功能也方便记录网络上的知识点。&lt;/p&gt;
+
+&lt;p&gt;偶然之中发现了Hugo这个神器，使用它可以很方便的生成静态网页，并且可以方便的
+部署到github上，这样有了github的版本管理等优势，再也不用担心传统VPN服务器
+带来的问题了。&lt;/p&gt;
+
+&lt;p&gt;从此以后打算使用&lt;a href=&#34;https://evernote.com&#34;&gt;Evernote&lt;/a&gt;记录一些有用的非原创知识点。
+而使用本博客记录一些自己的原创思考，技术等。&lt;/p&gt;
+
+&lt;p&gt;新的开始！加油！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

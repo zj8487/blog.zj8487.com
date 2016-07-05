@@ -1,0 +1,246 @@
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>2015 11</title>
+  <script src="http://blog.zj8487.com//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="http://blog.zj8487.com//bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-drawer-panel/paper-drawer-panel.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-item/paper-item.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="http://blog.zj8487.com//bower_components/iron-image/iron-image.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+  <style is="custom-style">
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .nav {
+      border-right: 1px solid #ccc;
+    }
+    
+    paper-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: var(--paper-grey-200, #eee);
+       
+      --paper-scroll-header-panel-full-header: {
+        background-image: url(http://blog.zj8487.com//images/cover.png);
+      };
+       
+      --paper-scroll-header-panel-condensed-header: {
+        background-image: url(http://blog.zj8487.com//images/cover.png);
+      };
+    }
+    
+    paper-toolbar {
+       
+      height: 256px;
+      background-color: transparent;
+    }
+    .profile{
+      width: 100%;
+      padding-bottom: 20px;
+    }
+    .photo{
+      margin: 20px;
+      display: inline-block;
+      height: 64px; width: 64px;
+      border-radius: 50%;
+    }
+    .article{
+      border: 1px solid #bebebe;
+      padding: 16px;
+      margin: 16px;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .title{
+      font-size: 22px;
+      padding: 8px 0 16px;
+    }
+    .description{
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+    .author{
+      font-size: 16px;
+      padding-left: 20px;
+      color: white;
+    }
+    .design{
+      font-size: 14px;
+    }
+    .copyright{
+      font-size: 16px;
+    }
+    paper-menu a {
+      text-decoration: none;
+      color: #212121;
+    }
+  </style>
+
+</head>
+<body>
+  <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
+    <div class="nav scroll" drawer>
+    
+      <iron-image class="profile" sizing="cover" src="http://blog.zj8487.com//images/profile.png">
+    
+        
+          <iron-image class="photo" sizing="cover" src="http://blog.zj8487.com//images/photo.png"></iron-image>
+        
+          <div class="author">zj8487</div>
+      </iron-image>
+      <paper-menu>
+        <a href="http://blog.zj8487.com/"><paper-item>
+          <iron-icon icon="home"></iron-icon>　<div class="flex">Home</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="http://blog.zj8487.com//categories/"><paper-item>
+          <iron-icon icon="drafts"></iron-icon>　<div class="flex">Categories</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="http://blog.zj8487.com//tags/"><paper-item>
+          <iron-icon icon="loyalty"></iron-icon>　<div class="flex">Tags</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+      </paper-menu>
+      <header id="header">
+    <nav id="nav">
+                <ul id="social">
+            
+            <li id="share">
+                <span class="title"> 相关链接 </span>
+                <div class="dropdown share">
+                    <ul class="social">
+                      <li> <a href="http://spf13.com" target="_blank" title="spf13 is Steve Francis" class="blog">spf13</a> </li>
+                      <li> <a href="http://zhibimo.com/" target="_blank" title="知笔墨" class="blog">知笔墨</a> </li>
+                      <li> <a href="http://1.guotie.sinaapp.com/?cat=134" target="_blank" title="铁哥" class="blog">铁哥</a> </li>
+                      <li> <a href="http://tonybai.com/" target="_blank" title="tonybai" class="blog">tonybai</a> </li>
+                      <li> <a href="http://keenwon.com/" target="_blank" title="keenwon" class="blog">keenwon</a> </li>
+                      <li> <a href="https://jysperm.me/" target="_blank" title="王子亭" class="blog">王子亭</a> </li>
+                      <li> <a href="http://www.dongming8.cn/" target="_blank" title="日月明心" class="blog">日月明心</a> </li>
+                      <li> <a href="http://disksing.com/" target="_blank" title="黄梦龙" class="blog">黄梦龙</a> </li>
+                      <li> <a href="http://blog.mutoo.im/" target="_blank" title="木匣子" class="blog">木匣子</a> </li>
+                      <li> <a href="http://www.zhaoxiaodan.com/" target="_blank" title="胖梁" class="blog">胖梁</a> </li>
+                      <li> <a href="http://www.simonzhang.net/?cat=484" target="_blank" title="simonzhang" class="blog">simonzhang</a> </li>
+                      <li> <a href="http://www.cnblogs.com/ghj1976/category/446360.html" target="_blank" title="蝈蝈俊" class="blog">蝈蝈俊</a> </li>
+                      <li> <a href="https://program-think.blogspot.com/" target="_blank" title="编程随想" class="blog">编程随想</a> </li>
+                      <li> <a href="http://colobu.com/" target="_blank" title="鸟窝" class="blog">鸟窝</a> </li>
+                    </ul>
+                <span class="icon icon-bubbles"> </span> <span class="subcount"></span> </div>
+            </li>
+        </ul>
+
+    </nav>
+</header>
+
+
+    </div>
+
+    <paper-scroll-header-panel main condenses header-height="256" condensed-header-height="64">
+
+      <paper-toolbar>
+
+        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div class="bottom title">zj8487的博客</div>
+        <div class="flex"></div>
+        
+          <a href="https://www.facebook.com/zj8487"><paper-icon-button src="http://blog.zj8487.com//images/facebook-dreamstale25.png"></paper-icon-button></a>
+        
+        
+          <a href="https://twitter.com/zj8487"><paper-icon-button src="http://blog.zj8487.com//images/twitter-dreamstale71.png"></paper-icon-button></a>
+        
+        
+        
+        
+          <a href="https://github.com/zj8487"><paper-icon-button src="http://blog.zj8487.com//images/github2-dreamstale35.png"></paper-icon-button></a>
+        
+          <a href="http://blog.zj8487.com//index.xml"><paper-icon-button src="http://blog.zj8487.com//images/feed-dreamstale27.png"></paper-icon-button></a>
+      
+      </paper-toolbar>
+
+
+
+<div class="content">
+
+
+  <div class="article">
+    <div class="title"><a href="http://blog.zj8487.com/post/2015/2015-11-09-ubuntu%E5%AE%9A%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E6%97%A5%E5%BF%97/">2015 11 09 ubuntu定期自动删除日志</a></div>
+    
+      <div class="categories">
+        
+          <a href="http://blog.zj8487.com//categories/2015-11/">2015-11</a>
+        
+          <a href="http://blog.zj8487.com//categories/ubuntu/">ubuntu</a>
+        
+      </div>
+     
+    <div class="description">需求来源 服务器后台托管在阿里云上，使用的是Ubuntu系统。每天系统运行会产生很多日志，但是购买的阿里云主机磁盘空间是有限的。时间一长，磁盘就被塞满了，这还导致了一两次系统系统服务器中断。 为了保证磁盘空余，就需要定时清理日志。比如我们只保持最近N天的日志。 Ubuntu的cron服务 cron服务提供crontab命令来设定cron服务的，任务调度分为两类，系统任务调度和用户任务调度。系统任务调度可直接编辑/etc/crontab文件进行配置。 crontab文件的含义 每一行都代表一项任务，每行的每个字段代表一项设置，它的格式共分为七个字段，前五段是时间设定段，第七段是要执行的命令段，格式如下: # m h dom mon dow user command 17 * * * * root cd / &amp;&amp; run-parts --report /etc/cron.hourly 25 6 * * * root test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily ) 47 6 * * 7 root test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly ) 52 6 1 * * root test</div>
+    <div class="tags">
+      9 Nov 2015
+      
+        
+          <a href="http://blog.zj8487.com//tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/">#系统运维</a>
+        
+       
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="title"><a href="http://blog.zj8487.com/post/2015/2015-11-03-%E5%9F%BA%E4%BA%8Ehugo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">2015 11 03 基于hugo的第一篇博客</a></div>
+    
+      <div class="categories">
+        
+          <a href="http://blog.zj8487.com//categories/2015-11/">2015-11</a>
+        
+      </div>
+     
+    <div class="description">为什么选择Hugo？ 搭建一个博客是一件比较麻烦的事情，需要选择VPN主机，域名管理等。 关键是还要担心VPN主机到期，自己辛苦记录的文章丢失，以及系统迁移等问题。 所以我一直使用Evernote记录个人的点点滴滴， 同时Evernote的[剪藏]功能也方便记录网络上的知识点。 偶然之中发现了Hugo这个神器，使用它可以很方便的生成静态网页，并且可以方便的 部署到github上，这样有了github的版本管理等优势，再也不用担心传统VPN服务器 带来的问题了。 从此以后打算使用Evernote记录一些有用的非原创知识点。 而使用本博客记录一些自己的原创思考，技术等。 新的开始！加油！</div>
+    <div class="tags">
+      3 Nov 2015
+      
+        
+          <a href="http://blog.zj8487.com//tags/%E6%9D%82%E8%B0%88/">#杂谈</a>
+        
+       
+    </div>
+  </div>
+
+
+</div>
+
+
+<paper-item>
+  
+    <paper-fab disabled icon="chevron-left"></paper-fab>
+  
+    <div class="flex"></div>
+  
+    <paper-fab disabled icon="chevron-right"></paper-fab>
+  
+</paper-item>
+
+
+      <paper-item>
+        <div class="copyright">zj8487© 2015 Copyright Text</div>
+        <div class="flex"></div>
+        <div class="design">Design <a href="http://pdevty.github.io/blog/">pdevty</a></div>
+      </paper-item>
+    </paper-scroll-header-panel>
+  </paper-drawer-panel>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>
