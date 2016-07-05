@@ -11,10 +11,10 @@ from datetime import datetime
 if __name__ == '__main__':
     post_name = raw_input("Post'title: ")
 
-    post_path = 'post/{year}/{date_format}-{post_name}.md'.format(
+    post_path = 'post/{year}/{date_format}-{post__name}.md'.format(
         year=datetime.now().year,
         date_format=datetime.now().strftime('%Y-%m-%d'),
-        post_name=post_name
+        post__name=post_name
     )
 
     subprocess.call(['hugo', 'new', post_path])
@@ -24,9 +24,9 @@ if __name__ == '__main__':
     with open(post_rel_path, 'r') as f:
         content = f.read()
 
-    url = '/{date_format}/{post_name}'.format(
+    url = '/{date_format}/{post__name}'.format(
         date_format=datetime.now().strftime('%Y/%m/%d'),
-        post_name=post_name
+        post__name=post_name
     )
 
     replace_patterns =[
